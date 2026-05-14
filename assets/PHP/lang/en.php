@@ -1,0 +1,90 @@
+<?php
+$lang = [
+    //index.html
+    'title' => 'Fenerbahçe - Home',
+    'header_title' => 'Fenerbahçe Spor Kulübü',
+    'nav_home' => 'Home',
+    'nav_players' => 'Players',
+    'nav_matches' => 'Matches',
+    'nav_suggest' => 'Suggest a player',
+    'nav_ranking' => 'Ranking',
+    'latest_results' => 'Latest Results',
+    'senior_team' => 'Senior Squad',
+    'current_ranking' => 'Current Ranking',
+    
+    //players.html
+    "players_title" => "Fenerbahçe Squad",
+    "search_title" => "Search for a player",
+    "search_placeholder" => "Type the player's name",
+    "search_button" => "Search",
+    "coach" => "Coach",
+    "official_squad" => "Fenerbahçe Official Squad",
+    "suggested_players" => "Fan Suggested Players",
+    "no_official_players" => "No official players found.",
+    "search_alert" => "Please enter at least 2 characters to search for a player.",
+
+    // player.php
+    "player_title" => "Player Card",
+    "at_club_since" => "At Club Since",
+    "back" => "Return to the squad",
+    "years_old" => "years old",
+
+    // suggest-player.php
+    "suggested_players_title" => "Fan Suggested Player Card",
+    "fan_suggestion" => "Fan Suggestion",
+    "delete_player" => "Delete this player",
+    "confirm_delete" => "Are you sure you want to delete this suggested player?",
+    
+    // matches.php
+    "matches_title" => "Matches",
+    "latest_matches" => "Recent Matches",
+    "match_date" => "Date",
+    "february" => "February",
+
+    // suggest.php
+    "suggest_title" => "Suggest a Player",
+    "suggest_player" => "Suggest a player",
+    "player_name" => "Player name:",
+    "player_number" => "Player number:",
+    "player_nationality" => "Nationality:",
+    "player_age" => "Age:",
+    "player_goals" => "Goals:",
+    "player_assists" => "Assists:",
+    "player_image" => "Player image:",
+    "submit" => "Suggest a player",
+    "browse" => "Browse",
+    "no_file" => "No file selected",
+    "suggest_alert" => "Please fill in all fields and add an image.",
+    "confirm_player" => "Your player suggestion has been successfully registered!",
+    "error_player" => "Error adding player.",
+    "error_image" => "Error uploading image.",
+    "error_upload" => "Please upload a valid image.",
+    "disable_age" => "Invalid age (16-50 years).",
+    "disable_numbers" => "Invalid player number (1-99).",
+    "invalid_name" => "The name must not exceed 50 characters.",
+    "invalid_nationality" => "The nationality must not exceed 100 characters.",
+    "invalid_goals" => "The number of goals must be an integer.",
+    "invalid_assists" => "The number of assists must be an integer.",
+    "illegal_characters" => "The name contains illegal characters.",
+    "illegal_nationality" => "The nationality contains illegal characters.",
+    "max_volum_image" => "The image file is too large.",
+    "custom_required_name" => "Please enter the player\'s name.",
+    "custom_required_number" => "Please enter the player\'s number.",
+    "custom_required_age" => "Please enter the player\'s age.",
+    "error_image_type" => "Please select an image of type .jpg, .png or .jpeg.",
+
+    // full-ranking.php
+    "ranking_title" => "Full Ranking",
+    "cureent_ranking" => "Current Ranking",
+    "position" => "Position",
+    "logo" => "Logo",
+    "team" => "Team",
+    "points" => "Points",
+    "played" => "Played",
+    "won" => "W",
+    "draw" => "D",
+    "lost" => "L",
+    "goals" => "Goals",
+    "conceded" => "Conceded"
+];
+?>

@@ -8,7 +8,7 @@ $lang = [
     'nav_matches' => 'Matchs',
     'nav_suggest' => 'Suggérer un joueur',
     'nav_ranking' => 'Classement',
-    'latest_results' => 'Derniers Résultats',
+    'latest_results' => 'Matchs de la saison 2025/2026',
     'senior_team' => 'Effectif Sénior',
     'current_ranking' => 'Classement Actuel',
     
@@ -86,5 +86,20 @@ $lang = [
     "goals" => "Buts",
     "conceded" => "Concédés",
 
+    // drapeaux / pays
+    "turquie" => "Turquie",
+    "bresil" => "Brésil",
+    "france" => "France",
+    "slovaquie" => "Slovaquie",
+    "pays_bas" => "Pays-Bas",
+    "angleterre" => "Angleterre",
+    "portugal" => "Portugal",
+    "mexique" => "Mexique",
+    "senegal" => "Sénégal",
+    "espagne" => "Espagne",
+    "mali" => "Mali",
+    "guinee" => "Guinée",
+
 ];
 ?>
+

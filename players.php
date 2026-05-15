@@ -63,10 +63,19 @@ if (!empty($searchQuery)) {
 
     <section class="players-grid">
         <h2><?php echo $lang['coach']; ?></h2>
-        <div class="player-card">
-            <img src="assets/images/mourinho.jpg" alt="José Mourinho">
-            <p><strong> José <br> Mourinho <br> Manager </strong></p>
-        </div>
+        <div class="player-card coach-card"
+             onclick="window.location.href='https://fr.wikipedia.org/wiki/Jos%C3%A9_Mourinho'">
+    <img 
+        src="assets/images/mourinho.jpg" 
+        alt="José Mourinho"
+    >
+
+    <p>
+        <strong>José Mourinho</strong><br>
+        <?php echo $lang['coach']; ?>
+    </p>
+
+</div>
 
         <h2><?php echo $lang['official_squad']; ?></h2>
         <?php
@@ -75,7 +84,7 @@ if (!empty($searchQuery)) {
         } else {
             foreach ($players as $player) {
                 echo '<div class="player-card" data-player-id="' . $player['id'] . '">';
-                echo '<img src="assets/images/' . htmlspecialchars($player['picture']) . '" alt="' . htmlspecialchars($player['name']) . '">';
+                echo '<img src="assets/images/players/' . htmlspecialchars($player['picture']) . '" alt="' . htmlspecialchars($player['name']) . '">';
                 echo '<p><strong>' . htmlspecialchars($player['name']) . ' <br> ' . $player['numero'] . '</strong></p>';
                 echo '</div>';
             }
@@ -143,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     card.classList.add('player-card');
                     card.setAttribute('data-player-id', player.id);
                     card.innerHTML = `
-                        <img src="assets/images/${player.picture}" alt="${player.name}">
+			<img src="assets/images/players/${player.picture}" alt="${player.name}">
                         <p><strong>${player.name} <br> ${player.numero}</strong></p>
                     `;
                     card.addEventListener('click', function () {

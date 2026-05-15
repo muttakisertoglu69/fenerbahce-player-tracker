@@ -1,5 +1,4 @@
 <?php
-// Multilingue
 include 'assets/PHP/lang.php';
 ?>
 
@@ -15,13 +14,13 @@ include 'assets/PHP/lang.php';
 
 <?php include_once 'assets/PHP/header.php'; ?>
 
-<main>
+<main class="home-sections">
     <section class="latest-results">
         <a href="matches.php" class="clickable-section">
             <h2><?php echo $lang['latest_results']; ?></h2>
-            <div class="match">
-                <p>Galatasaray 0 - 0 Fenerbahçe </p>
-                <p>24 <?php echo $lang['february']; ?> 2025</p>
+    
+            <div class="match" id="homeLastMatch">
+                <p>Chargement du dernier match...</p>
             </div>
         </a>
     </section>
@@ -29,43 +28,133 @@ include 'assets/PHP/lang.php';
     <section class="top-players">
         <a href="players.php" class="clickable-section">
             <h2><?php echo $lang['senior_team']; ?></h2>
+
             <div class="player-card">
-                <img src="assets/images/livakovic.jpg" alt="Livakovic">
-                <p> Dominik Livaković #40 <?php echo $trans['goalkeeper']; ?></p>
+                <img src="assets/images/players/ederson.jpg" alt="Ederson">
+                <p><strong>Ederson</strong><br>#31</p>
             </div>
+
             <div class="player-card">
-                <img src="assets/images/talisca.jpg" alt="Talisca">
-                <p> Anderson Talisca #94 <?php echo $trans['midfielder']; ?></p>
+                <img src="assets/images/players/talisca.jpg" alt="Talisca">
+                <p><strong>Anderson Talisca</strong><br>#94</p>
             </div>
         </a>
     </section>
-
+    
     <section class="ranking"> 
         <a href="full-ranking.php" class="clickable-section">
             <h2><?php echo $lang['current_ranking']; ?></h2>
-            <div class="ranking-container">
-                <div class="ranking-card">
-                    <h3>1. Galatasaray</h3>
-                    <p><?php echo $trans['points']; ?> 65</p>
-                </div>
-                <div class="ranking-card">
-                    <h3>2. Fenerbahçe</h3>
-                    <p><?php echo $trans['points']; ?> 61</p>
-                </div>
-                <div class="ranking-card">
-                    <h3>3. Samsunspor</h3>
-                    <p><?php echo $trans['points']; ?> 46</p>
-                </div>
-                <div class="ranking-card">
-                    <h3>4. Besiktas</h3>
-                    <p><?php echo $trans['points']; ?> 41</p>
-                </div>         
+    
+            <div class="home-ranking-table-wrapper">
+                <table class="home-ranking-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Team</th>
+                            <th>Pts</th>
+                        </tr>
+                    </thead>
+                    <tbody id="homeRanking">
+                        <tr>
+                            <td colspan="3">Chargement...</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </a>
     </section>
 </main>
 
 <?php include_once 'assets/PHP/footer.php'; ?>
+
+<script>
+fetch('assets/PHP/api/standings.php')
+    .then(response => response.json())
+    .then(data => {
+        const ranking = document.getElementById('homeRanking');
+        ranking.innerHTML = '';
+
+        if (data.error || !data.table) {
+            ranking.innerHTML = `
+                <tr>
+                    <td colspan="3">Classement indisponible</td>
+                </tr>
+            `;
+            return;
+        }
+
+        data.table.slice(0, 5).forEach(team => {
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td>${team.intRank}</td>
+                <td>${team.strTeam}</td>
+                <td>${team.intPoints}</td>
+            `;
+
+            ranking.appendChild(row);
+        });
+    })
+    .catch(() => {
+        document.getElementById('homeRanking').innerHTML = `
+            <tr>
+                <td colspan="3">Erreur API</td>
+            </tr>
+        `;
+    });
+</script>
+
+<script>
+fetch('assets/data/matches.json')
+    .then(response => response.json())
+    .then(data => {
+
+        const container = document.getElementById('homeLastMatch');
+
+        if (!data.matches || data.matches.length === 0) {
+            container.innerHTML = '<p>Aucun match trouvé.</p>';
+            return;
+        }
+
+        const latestMatches = data.matches
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .slice(0, 3);
+
+        container.innerHTML = '';
+
+        latestMatches.forEach(match => {
+
+            const resultClass =
+                match.result === 'W' ? 'win' :
+                match.result === 'D' ? 'draw' :
+                'loss';
+
+            const div = document.createElement('div');
+            div.classList.add('mini-match-card');
+
+            div.innerHTML = `
+                <h3>
+                    ${match.homeTeam}
+                    ${match.homeScore} - ${match.awayScore}
+                    ${match.awayTeam}
+                </h3>
+
+                <p>${match.date}</p>
+                <p>${match.competition}</p>
+
+                <span class="match-result ${resultClass}">
+                    ${match.result}
+                </span>
+            `;
+
+            container.appendChild(div);
+        });
+    })
+    .catch(() => {
+        document.getElementById('homeLastMatch').innerHTML =
+            '<p>Erreur lors du chargement.</p>';
+    });
+</script>
 
 </body>
 </html>

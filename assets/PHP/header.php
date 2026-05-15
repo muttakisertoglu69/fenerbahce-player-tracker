@@ -4,9 +4,9 @@
         <a href="?lang=fr&player=<?php echo $playerId; ?>">Français</a> | <a href="?lang=en&player=<?php echo $playerId; ?>">English</a>
     </div>
     <div class="logo-container">
-        <img src="assets/images/fenerbahce-logo.png" alt="Fenerbahçe Logo" class="logo left-logo">
+        <img src="assets/images/logo/fenerbahce-logo.png" alt="Fenerbahçe Logo" class="logo left-logo">
         <h1><a href="index.php"><?php echo $lang['header_title']; ?></a></h1>
-        <img src="assets/images/turquie.png" alt="Fenerbahçe Logo" class="logo right-logo">
+        <img src="assets/images/turquie.png" alt="Turquie" class="logo right-logo">
     </div>
     <nav>
         <ul>

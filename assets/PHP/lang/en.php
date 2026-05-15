@@ -8,7 +8,7 @@ $lang = [
     'nav_matches' => 'Matches',
     'nav_suggest' => 'Suggest a player',
     'nav_ranking' => 'Ranking',
-    'latest_results' => 'Latest Results',
+    'latest_results' => 'Matches for the 2025/2026 season',
     'senior_team' => 'Senior Squad',
     'current_ranking' => 'Current Ranking',
     
@@ -85,6 +85,20 @@ $lang = [
     "draw" => "D",
     "lost" => "L",
     "goals" => "Goals",
-    "conceded" => "Conceded"
+    "conceded" => "Conceded",
+
+    // flags / countries
+    "turquie" => "Türkiye",
+    "bresil" => "Brazil",
+    "france" => "France",
+    "slovaquie" => "Slovakia",
+    "pays_bas" => "Netherlands",
+    "angleterre" => "England",
+    "portugal" => "Portugal",
+    "mexique" => "Mexico",
+    "senegal" => "Senegal",
+    "espagne" => "Spain",
+    "mali" => "Mali",
+    "guinee" => "Guinea",
 ];
 ?>

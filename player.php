@@ -19,6 +19,23 @@ if ($playerId <= 0) {
 $db = Database::getInstance();
 $player = $db->getPlayer($playerId);
 
+$nationalities = [
+    "Turquie" => $lang['turquie'],
+    "Brésil" => $lang['bresil'],
+    "France" => $lang['france'],
+    "Slovaquie" => $lang['slovaquie'],
+    "Pays-Bas" => $lang['pays_bas'],
+    "Angleterre" => $lang['angleterre'],
+    "Portugal" => $lang['portugal'],
+    "Mexique" => $lang['mexique'],
+    "Sénégal" => $lang['senegal'],
+    "Espagne" => $lang['espagne'],
+    "Mali" => $lang['mali'],
+    "Guinée" => $lang['guinee']
+];
+
+$translatedNationality = $nationalities[$player['nationality']] ?? $player['nationality'];
+
 // Vérifier si le joueur existe
 if (!$player) {
     echo "Joueur non trouvé";
@@ -64,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     <!-- Section photo -->
     <div class="player-image-section">
         <div class="player-number"><?php echo $player['numero']; ?></div>
-        <img id="player-image" src="assets/images/<?php echo $player['picture']; ?>" alt="<?php echo htmlspecialchars($player['name']); ?>">
+        <img id="player-image" src="assets/images/players/<?php echo $player['picture']; ?>" alt="<?php echo htmlspecialchars($player['name']); ?>">
     </div>
     
     <!-- Section informations -->
@@ -79,8 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
             
             <div class="player-detail-item">
                 <span class="detail-label"><?php echo $lang['player_nationality']; ?></span>
-                <span class="detail-value"><?php echo htmlspecialchars($player['nationality']); ?></span>
-            </div>
+                <span class="detail-value"><?php echo htmlspecialchars($translatedNationality); ?></span>            </div>
             
             <div class="player-detail-item">
                 <span class="detail-label"><?php echo $lang['at_club_since']; ?></span>

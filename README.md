@@ -135,10 +135,17 @@ http://localhost:8000
 
 ![Joueurs](assets/README/page2.png)
 
+### Matchs
+
+![Matchs](assets/README/page3.png)
+
 ### Suggérer un joueur
 
-![Suggestion](assets/README/page3.png)
+![Suggestion](assets/README/page4.png)
 
+### Classement
+
+![Classement](assets/README/page5.png)
 
 ## Auteur
 
